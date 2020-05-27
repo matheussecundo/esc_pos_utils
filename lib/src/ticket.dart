@@ -111,7 +111,7 @@ class Ticket {
     if (styles.height.value != _styles.height.value ||
         styles.width.value != _styles.width.value) {
       bytes += Uint8List.fromList(
-        List.from(cSizeGSn.codeUnits)
+        List.from(cSizeESCn.codeUnits)
           ..add(PosTextSize.decSize(styles.height, styles.width)),
       );
       _styles = _styles.copyWith(height: styles.height, width: styles.width);
@@ -132,11 +132,11 @@ class Ticket {
     }
 
     // Set Kanji mode
-    if (isKanji) {
-      bytes += cKanjiOn.codeUnits;
-    } else {
-      bytes += cKanjiOff.codeUnits;
-    }
+    // if (isKanji) {
+    //   bytes += cKanjiOn.codeUnits;
+    // } else {
+    //   bytes += cKanjiOff.codeUnits;
+    // }
   }
 
   int _getMaxCharsPerLine(PosFontType font) {
